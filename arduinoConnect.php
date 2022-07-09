@@ -5,9 +5,9 @@
   date_default_timezone_set('Asia/Kolkata');
   $idrs = $_GET["rfid"];
   $servername = "localhost";
-  $username = "id17927674_george";
-  $password = "MCProject@151";
-  $dbname = "id17927674_db";
+  $username = "root";
+  $password = "";
+  $dbname = "rentalsystem";
 
   $conn = new mysqli($servername, $username, $password, $dbname); // Create connection
   if (mysqli_connect_errno()) {

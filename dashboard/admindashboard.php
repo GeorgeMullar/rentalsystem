@@ -14,11 +14,10 @@ if ($_SESSION['loggedIn'] == 0) {
 
 <?php
 function dis_tran($user){
-  $servername = "localhost";
-  $username = "id17927674_george";
-  $password = "MCProject@151";
-  $dbname = "id17927674_db";
-
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "rentalsystem";
   $conn = new mysqli($servername, $username, $password, $dbname); // Create connection
   if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();

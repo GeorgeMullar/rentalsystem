@@ -1,14 +1,20 @@
-#carouselExampleIndicators{
-  overflow: hidden;
-  align-self: center;
-  margin: auto;
-  box-shadow: 2px gray ;
+#carouselExampleIndicators {
+    overflow: hidden;
+    align-self: center;
+    margin: auto;
+    box-shadow: 2px gray;
 }
 
-#feature{
-   /* border: 1px solid red;*/
+
+/* #feature{
+   /* border: 1px solid red;
+} */
+
+.modal {
+    z-index: 99 !important;
 }
-.fi{
+
+.fi {
     height: auto;
     width: 33%;
     /*border: 1px solid grey;*/
@@ -19,9 +25,10 @@
     justify-content: space-evenly;
     text-align: center;
 }
-.ft{
-    margin:auto;
-    font-size:30px;
+
+.ft {
+    margin: auto;
+    font-size: 30px;
     font-weight: bold;
-    font-family:cursive;
+    font-family: cursive;
 }
