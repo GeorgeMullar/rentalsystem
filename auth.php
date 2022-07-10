@@ -5,19 +5,20 @@ function redirect($url) {
     ob_end_flush();
     die();
 }
-  $servername = "localhost";
-  $username = "id17927674_george";
-  $password = "MCProject@151";
-  $dbname = "id17927674_db";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "rentalsystem";
   $conn = new mysqli($servername, $username, $password, $dbname); // Create connection
   if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
-if($_SERVER['REQUEST_METHOD'] == "GET"){
+if($_SERVER['REQUEST_METHOD'] == "POST"){
     //echo $_GET["uname"];
-    $username = $_GET['uname'];
-    $password = $_GET['psw'];
-    $stmt = $conn->query("SELECT user, password FROM credentials WHERE user='$username' AND  password='$password' LIMIT 1");
+    $username = $_POST['uname'];
+    $password = $_POST['psw'];
+    $passwordmd5=md5($password);
+    $stmt = $conn->query("SELECT username, password FROM credentials WHERE username='$username' AND  password='$passwordmd5' LIMIT 1");
     
     $row=$stmt->fetch_assoc();
     $url="https://rentmcproject.000webhostapp.com/dashboard/userdashboard.php";
@@ -35,7 +36,8 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
         
         //sleep(3);
         if($username=="admin"){
-            header('Location: https://rentmcproject.000webhostapp.com/dashboard/admindashboard.php');
+            echo "success";
+            // header('Location: https://rentmcproject.000webhostapp.com/dashboard/admindashboard.php');
         }
         else
         header('Location: https://rentmcproject.000webhostapp.com/dashboard/userdashboard.php');
@@ -47,4 +49,3 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
         echo "wrong pass";
     }
 }
-    ?>
