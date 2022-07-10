@@ -36,11 +36,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         
         //sleep(3);
         if($username=="admin"){
-            echo "success";
-            // header('Location: https://rentmcproject.000webhostapp.com/dashboard/admindashboard.php');
+            // echo "success";
+            header('Location: http://localhost:8080/projects/NewRental/dashboard/admindashboard.php');
         }
         else
-        header('Location: https://rentmcproject.000webhostapp.com/dashboard/userdashboard.php');
+        header('Location: http://localhost:8080/projects/NewRental/dashboard/userdashboard.php');
         exit();
         
     }

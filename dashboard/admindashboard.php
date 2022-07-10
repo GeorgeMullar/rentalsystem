@@ -23,7 +23,7 @@ function dis_tran($user){
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
  // $user=$_SESSION['username'];
-  $sql="SELECT * FROM transactions WHERE user='$user' order by ID DESC";
+  $sql="SELECT * FROM transactions WHERE username='$user' order by ID DESC";
   $result = $conn->query($sql);
   echo "
   <div id='table-div'>
@@ -98,17 +98,17 @@ function dis_tran($user){
 <h1>Admin Dashboard</h1>
 	
 	<?php
-	    $servername = "localhost";
-    $username = "id17927674_george";
-    $password = "MCProject@151";
-    $dbname = "id17927674_db";
+	$servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "rentalsystem";
 
     $conn = new mysqli($servername, $username, $password, $dbname); // Create connection
     if (mysqli_connect_errno()) {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
     $user = $_SESSION['username'];
-    $sql = "SELECT * FROM customers order by user";
+    $sql = "SELECT * FROM customers order by username";
     $result = $conn->query($sql);	
 	
 	echo "
@@ -124,11 +124,11 @@ function dis_tran($user){
       ";
 $sl=1;
     while($row = $result->fetch_assoc()){
-        $user=$row["user"] ;
-        $sql="select closing_bal from transactions where user='$user' order by id desc limit 1";
+        $user=$row["username"] ;
+        $sql="select balance from balance where username='$user'";
         $res = $conn->query($sql);
         $row2=$res->fetch_assoc();
-        $amount=$row2["closing_bal"];
+        $amount=$row2["balance"];
         echo '<tr>';
         echo "<td>" . $sl . "</td>";
         echo "<td>" . $row["name"] . "</td>";
