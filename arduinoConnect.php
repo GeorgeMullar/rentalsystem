@@ -33,7 +33,7 @@
   if (!$row) { //non active
     $entry_time = date("Y-m-d H:i:s");
     echo $entry_time;
-    $sql = "insert into active_users (username, entry_time) values('$user', '$entry_time')";
+    $sql = "insert into active_users (username,entry_time) values('$user','$entry_time')";
     $result = $conn->query($sql);
     exit();
   }
@@ -59,7 +59,7 @@
   //echo "<br>" . $row["opening_bal"];
   $closing_bal = $balance - $deduct;
   $sql = "INSERT into transactions(username,opening_bal,closing_bal,type,entry_time,exit_time)
-           values('$user',$entry_time,$opening_bal,$closing_bal,'Debit',$entry_time,$exit_time)";
+           values('$user',$balance,$closing_bal,'Debit','$entry_time','$exit_time')";
   $result = $conn->query($sql);
   echo "e" . $closing_bal . ";" . $user . ";";
   // //echo $res;
