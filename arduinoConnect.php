@@ -13,9 +13,6 @@
   if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
-  else{
-    echo "connected";
-  }
   //to get username from rfid
   $sql = "select username from customers where rfid=$idrs limit 1";
   $result = $conn->query($sql);
@@ -24,29 +21,32 @@
     echo "invalid user";
     exit();
   }
-  $user = $row["username"];
-  //exist
-  $sql = "select entry_time from active_users where username='$user' ";
-  $result = $conn->query($sql);
-  $row = $result->fetch_assoc();
-  
-  if (!$row) { //non active
-    $entry_time = date("Y-m-d H:i:s");
-    echo $entry_time;
-    $sql = "insert into active_users (username,entry_time) values('$user','$entry_time')";
-    $result = $conn->query($sql);
-    exit();
-  }
-  //active user
-  $entry_time = $row["entry_time"];
+  $user = $row["username"];   //exist
+  // check balance
   $sql = "select balance from balance where username='$user' ";
   $result = $conn->query($sql);
   $row = $result->fetch_assoc();
   $balance = $row["balance"];
-  if ($balance < 500) {
-    echo "low balance";
-    exit("low balance");
+
+  $sql = "select entry_time from active_users where username='$user' ";
+  $result = $conn->query($sql);
+  $row = $result->fetch_assoc();
+
+  if (!$row) { //non active
+    if ($balance < 500) {
+      echo "low balance";
+      exit("low balance");
+    }
+    $entry_time = date("Y-m-d H:i:s");
+    // echo $entry_time;
+    $sql = "insert into active_users (username,entry_time) values('$user','$entry_time')";
+    $result = $conn->query($sql);
+    echo "w" . $balance . ";".$user. ";";
+    exit();
   }
+  //active user
+  $entry_time = $row["entry_time"];
+
   //active user
   $exit_time = date("Y-m-d H:i:s");
   //calculation
@@ -62,6 +62,12 @@
            values('$user',$balance,$closing_bal,'Debit','$entry_time','$exit_time')";
   $result = $conn->query($sql);
   echo "e" . $closing_bal . ";" . $user . ";";
+  //delete from active
+  $sql = "delete from active_users where username='$user'";
+  $result = $conn->query($sql);
+  //update bal
+  $sql = "update balance set balance=$closing_bal where username='$user' ";
+  $result = $conn->query($sql);
   // //echo $res;
   // if (!$res) { // about to exit null
 
