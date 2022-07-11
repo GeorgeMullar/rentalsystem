@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>MC Project</title>
+  <title>Rental System</title>
   <meta charset="utf-8">
    <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -24,7 +24,7 @@
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark" id="nav">
   <div class="container-fluid">
-    <a class="navbar-brand" href="javascript:void(0)">MC Project</a>
+    <a class="navbar-brand" href="javascript:void(0)">Rental Project</a>
     <div class="d-flex" style="margin-left:auto;">
       <a>
       <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="btn btn-primary">Login</button> </a>
