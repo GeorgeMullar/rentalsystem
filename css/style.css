@@ -5,6 +5,10 @@
     box-shadow: 2px gray;
 }
 
+.card {
+    margin: 1000px 5px 5px 10px !important;
+}
+
 
 /* #feature{
    /* border: 1px solid red;
