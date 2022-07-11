@@ -3,25 +3,26 @@ session_start();
 //$_POST['amount']=0;
 if (isset($_POST["logout"])) {
     $_SESSION['loggedIn'] = 0;
-    header('Location: https://rentmcproject.000webhostapp.com/');
+    header('Location: http://localhost:8080/projects/NewRental/');
 }
 //$_SESSION['loggedIn']=0;
 if ($_SESSION['loggedIn'] == 0) {
 
-    header('Location: https://rentmcproject.000webhostapp.com/');
+    header('Location: http://localhost:8080/projects/NewRental/');
 }
 ?>
 
 <?php
 function dis_tran($user){
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "rentalsystem";
-  $conn = new mysqli($servername, $username, $password, $dbname); // Create connection
-  if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
+//     $servername = "localhost";
+//     $username = "root";
+//     $password = "";
+//     $dbname = "rentalsystem";
+//   $conn = new mysqli($servername, $username, $password, $dbname); // Create connection
+//   if (mysqli_connect_errno()) {
+//     echo "Failed to connect to MySQL: " . mysqli_connect_error();
+//   }
+include '../db.php';
  // $user=$_SESSION['username'];
   $sql="SELECT * FROM transactions WHERE username='$user' order by ID DESC";
   $result = $conn->query($sql);
@@ -98,15 +99,16 @@ function dis_tran($user){
 <h1>Admin Dashboard</h1>
 	
 	<?php
-	$servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "rentalsystem";
+	// $servername = "localhost";
+    // $username = "root";
+    // $password = "";
+    // $dbname = "rentalsystem";
 
-    $conn = new mysqli($servername, $username, $password, $dbname); // Create connection
-    if (mysqli_connect_errno()) {
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    }
+    // $conn = new mysqli($servername, $username, $password, $dbname); // Create connection
+    // if (mysqli_connect_errno()) {
+    //     echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    // }
+    include '../db.php';
     $user = $_SESSION['username'];
     $sql = "SELECT * FROM customers order by username";
     $result = $conn->query($sql);	

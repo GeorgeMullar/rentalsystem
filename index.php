@@ -153,7 +153,7 @@ window.onclick = function(event) {
 
         <!-- Content -->
         <h5 class="text-uppercase font-weight-bold" >About Us</h5>
-        <p>George Mullar J-194229<br>Yashwanth T-194280<br>Sanjay B-194116</p>
+        <p>Web Dev:George Mullar Jampana<br>Hardware Design:Thati Yashwanth</p>
 
       </div>
       <!-- Grid column -->

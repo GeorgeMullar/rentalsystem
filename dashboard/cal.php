@@ -1,14 +1,15 @@
 <?php
 
     date_default_timezone_set('Asia/Kolkata');
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "rentalsystem";
+    // $servername = "localhost";
+    // $username = "root";
+    // $password = "";
+    // $dbname = "rentalsystem";
+    include 'db.php';
     //echo "came";
     $user=$_POST['user'];
     //echo $user;
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    // $conn = new mysqli($servername, $username, $password, $dbname);
     $sql = "select balance from balance where username='$user'";
     $res = $conn->query($sql);
     $row = $res->fetch_assoc();

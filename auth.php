@@ -5,14 +5,15 @@ function redirect($url) {
     ob_end_flush();
     die();
 }
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "rentalsystem";
-  $conn = new mysqli($servername, $username, $password, $dbname); // Create connection
-  if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $dbname = "rentalsystem";
+//   $conn = new mysqli($servername, $username, $password, $dbname); // Create connection
+//   if (mysqli_connect_errno()) {
+//     echo "Failed to connect to MySQL: " . mysqli_connect_error();
+//   }
+include 'db.php';
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     //echo $_GET["uname"];
     $username = $_POST['uname'];

@@ -4,15 +4,17 @@
   <?php
   date_default_timezone_set('Asia/Kolkata');
   $idrs = $_GET["rfid"];
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "rentalsystem";
+  // $servername = "localhost";
+  // $username = "root";
+  // $password = "";
+  // $dbname = "rentalsystem";
+  
 
-  $conn = new mysqli($servername, $username, $password, $dbname); // Create connection
-  if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
+  // $conn = new mysqli($servername, $username, $password, $dbname); // Create connection
+  // if (mysqli_connect_errno()) {
+  //   echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  // }
+  include 'db.php';
   //to get username from rfid
   $sql = "select username from customers where rfid=$idrs limit 1";
   $result = $conn->query($sql);

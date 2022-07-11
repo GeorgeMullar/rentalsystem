@@ -2,12 +2,12 @@
 session_start();
 if(isset($_POST["logout"])) {
             $_SESSION['loggedIn']=0;
-            header('Location: https://rentmcproject.000webhostapp.com/');
+            header('Location: http://localhost:8080/projects/NewRental/');
         }
 //$_SESSION['loggedIn']=0;
   if($_SESSION['loggedIn']==0){
       
-      header('Location: https://rentmcproject.000webhostapp.com/'); //redirecting to home page
+      header('Location: http://localhost:8080/projects/NewRental/'); //redirecting to home page
   }
  // echo $_SESSION['loggedIn'] . "<br>";
 ?>
@@ -41,20 +41,41 @@ if(isset($_POST["logout"])) {
     </div>
   </div>
 </nav>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
 <h1 align="center">User Dashboard</h1>
 <?php
   
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "rentalsystem";
+  // $servername = "localhost";
+  // $username = "root";
+  // $password = "";
+  // $dbname = "rentalsystem";
 
-  $conn = new mysqli($servername, $username, $password, $dbname); // Create connection
-  if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
+  // $conn = new mysqli($servername, $username, $password, $dbname); // Create connection
+  // if (mysqli_connect_errno()) {
+  //   echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  // }
+  include '../db.php';
   $user=$_SESSION['username'];
-  $sql="SELECT * FROM transactions WHERE user='$user' order by ID DESC";
+  $sql="SELECT * FROM transactions WHERE username='$user' order by ID DESC";
   $result = $conn->query($sql);
   echo "
   <div id='table-div'>
