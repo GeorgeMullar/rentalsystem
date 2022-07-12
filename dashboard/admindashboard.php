@@ -1,14 +1,16 @@
 <?php
 session_start();
 //$_POST['amount']=0;
+// include '../includes/domain.php';
+include "../includes/domain.php";
 if (isset($_POST["logout"])) {
     $_SESSION['loggedIn'] = 0;
-    header('Location: http://localhost:8080/projects/NewRental/');
+    header('Location: '.$domain);
 }
 //$_SESSION['loggedIn']=0;
 if ($_SESSION['loggedIn'] == 0) {
 
-    header('Location: http://localhost:8080/projects/NewRental/');
+    header('Location: '.$domain);
 }
 ?>
 
@@ -22,7 +24,8 @@ function dis_tran($user){
 //   if (mysqli_connect_errno()) {
 //     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 //   }
-include '../db.php';
+// include '../db.php';
+include "../db.php";
  // $user=$_SESSION['username'];
   $sql="SELECT * FROM transactions WHERE username='$user' order by ID DESC";
   $result = $conn->query($sql);

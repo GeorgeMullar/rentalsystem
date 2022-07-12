@@ -5,7 +5,9 @@
     // $username = "root";
     // $password = "";
     // $dbname = "rentalsystem";
-    include 'db.php';
+    include '../db.php';
+    // include 'includes/domain.php';
+    include "../includes/domain.php";
     //echo "came";
     $user=$_POST['user'];
     //echo $user;
@@ -30,6 +32,6 @@
     $res = $conn->query($sql);
     echo $conn -> error;
     // header("Location: https://rentmcproject.000webhostapp.com/dashboard/admindashboard.php");
-    header('Location: http://localhost:8080/projects/NewRental/dashboard/admindashboard.php');
+    header('Location: '.$domain.'/dashboard/admindashboard.php');
 
 ?>

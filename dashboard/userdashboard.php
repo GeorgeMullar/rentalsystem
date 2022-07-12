@@ -1,13 +1,14 @@
 <?php
 session_start();
+include "../includes/domain.php";
 if (isset($_POST["logout"])) {
   $_SESSION['loggedIn'] = 0;
-  header('Location: http://localhost:8080/projects/NewRental/');
+  header('Location: '.$domain);
 }
 //$_SESSION['loggedIn']=0;
 if ($_SESSION['loggedIn'] == 0) {
 
-  header('Location: http://localhost:8080/projects/NewRental/'); //redirecting to home page
+  header('Location: ' .$domain); //redirecting to home page
 }
 // echo $_SESSION['loggedIn'] . "<br>";
 include '../db.php';

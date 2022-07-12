@@ -14,6 +14,7 @@ function redirect($url) {
 //     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 //   }
 include 'db.php';
+include 'includes/domain.php';
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     //echo $_GET["uname"];
     $username = $_POST['uname'];
@@ -38,10 +39,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         //sleep(3);
         if($username=="admin"){
             // echo "success";
-            header('Location: http://localhost:8080/projects/NewRental/dashboard/admindashboard.php');
+            header('Location: '. $domain .'/dashboard/admindashboard.php');
         }
         else
-        header('Location: http://localhost:8080/projects/NewRental/dashboard/userdashboard.php');
+        header('Location: '. $domain .'/dashboard/userdashboard.php');
         exit();
         
     }

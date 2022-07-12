@@ -1,9 +1,12 @@
 <?php
+include 'includes/domain.php';
 if ($_SESSION['loggedIn'] == 0) {
 
-    header('Location: http://localhost:8080/projects/NewRental/'); //redirecting to home page
+    header('Location: '.$domain); //redirecting to home page
+    
 }
 include "../db.php";
+include "../includes/domain.php";
 $user=$_POST["username"];
     $sql = "select active from customers where username='$user'";
     $result = $conn->query($sql);
@@ -19,7 +22,7 @@ $user=$_POST["username"];
         $sql = "update customers set active=1 where username='$user'";
         $result = $conn->query($sql);
     }
-    header('Location: http://localhost:8080/projects/NewRental/dashboard/userdashboard.php');
+    header('Location: ' .$domain . '/dashboard/userdashboard.php');
 // if(isset($_POST["blocktoggle"])){
     
 // }
