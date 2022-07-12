@@ -11,7 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/style1.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style3.css">
-    <script scr="js/js1.js"></script>
 </head>
 
 <body>
@@ -71,9 +70,10 @@
     </p> -->
     </div>
     <!-- <hr> -->
-    <script src="js/script1.js"></script>
+    <!-- <script src="js/script1.js"></script> -->
+    <!-- <script src="js/js1.js"></script> -->
 
-    </script>
+
     <script>
         // Get the modal
         var modal = document.getElementById('id01');
@@ -101,6 +101,7 @@
       </div>
     </div>
   </div> -->
+
     <div class="jumbotron rfid-box">
 
         <div class="container-fluid text-center text-md-left">
@@ -112,9 +113,12 @@
                 <div class="col-md-6 mt-md-0 mt-3" style="color: black;">
                     <h1 class="rfid">Virtual RFid Scan</h1>
                     <p class="lead">Your Rfid is 1380472889723</p>
-                    
+
                     <p class="lead">
-                        <a class="btn btn-primary btn-lg" href="#" role="button">Scan Card</a>
+                    <form action="" id="rfid-form" method="post">
+                        <input type="text" name="rfid" hidden value="8080">
+                        <input type="submit" class="btn btn-primary btn-lg" value="Scan"></input>
+                    </form>
                     </p>
 
                     <hr class="clearfix w-100 d-md-none pb-3">
@@ -128,10 +132,13 @@
                 <div class="col-md-6 mb-md-0 mb-3" style="color: black;">
 
                     <!-- Content -->
-                    <h5 class="text-uppercase font-weight-bold">Display</h5>
+                    <h5 class="display-head">Display</h5>
                     <div class="display">
                         <div class="display-txt">
-                            Welcome Recruiter!
+                        Please Scan Your Card
+                        </div>
+                        <div class="balance">
+                            
                         </div>
                     </div>
 
@@ -193,6 +200,8 @@
 
     </footer>
     <!-- Footer -->
-    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/js1.js"></script>
+</body>
 
 </html>

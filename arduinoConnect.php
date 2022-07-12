@@ -1,9 +1,7 @@
-<html>
 
-<body>
   <?php
   date_default_timezone_set('Asia/Kolkata');
-  $idrs = $_GET["rfid"];
+  $idrs = $_POST["rfid"];
   // $servername = "localhost";
   // $username = "root";
   // $password = "";
@@ -43,7 +41,10 @@
     // echo $entry_time;
     $sql = "insert into active_users (username,entry_time) values('$user','$entry_time')";
     $result = $conn->query($sql);
-    echo "w" . $balance . ";".$user. ";";
+    $response=array('type'=>'entry','user'=>$user,'balance'=>$balance);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode($response);
+    // echo "w" . $balance . ";".$user. ";";
     exit();
   }
   //active user
@@ -63,7 +64,11 @@
   $sql = "INSERT into transactions(username,opening_bal,closing_bal,type,entry_time,exit_time)
            values('$user',$balance,$closing_bal,'Debit','$entry_time','$exit_time')";
   $result = $conn->query($sql);
-  echo "e" . $closing_bal . ";" . $user . ";";
+  // $response=["exit",$user,$balance];
+  $response=array('type'=>'exit','user'=>$user,'balance'=>$closing_bal);
+  header('Content-Type: application/json; charset=utf-8');
+  echo json_encode($response);
+  // echo "e" . $closing_bal . ";" . $user . ";";
   //delete from active
   $sql = "delete from active_users where username='$user'";
   $result = $conn->query($sql);
@@ -113,6 +118,3 @@
   $conn->close();
   ?>
 
-  </head>
-
-</html>

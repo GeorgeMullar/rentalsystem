@@ -81,7 +81,8 @@ nav {
     background-color: rgb(8, 83, 33);
 }
 
-.display-txt {
+.display-txt,
+.balance {
     color: antiquewhite;
 }
 
@@ -94,4 +95,12 @@ nav {
 
 .rfid-box {
     background-color: aliceblue;
+}
+
+.display-head {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.2;
+    padding-left: 25px;
+    padding-right: 25px;
 }
