@@ -18,7 +18,7 @@
     <nav class="navbar" id="nav">
         <div class="container-fluid">
             <a class="navbar-brand" href="javascript:void(0)">Rental Project</a>
-            <div class="d-flex" style="margin-left:auto;">
+            <div class="d-flex">
                 <a>
                     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto; font-size:1.5rem" class="btn btn-primary">Login</button> </a>
 
@@ -63,8 +63,8 @@
         <p class="lead">Here you can explore this project by following below guidelines</p>
         <hr class="my-4">
         <p>Please Login with folowing credentials</p>
-        <p>Username : Yashwanth</p>
-        <p>Password : Yash</p>
+        <p>Username : recruiter</p>
+        <p>Password : recruiter@52</p>
         <!-- <p class="lead">
       <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </p> -->
@@ -116,7 +116,7 @@
 
                     <p class="lead">
                     <form action="" id="rfid-form" method="post">
-                        <input type="text" name="rfid" hidden value="8080">
+                        <input type="text" name="rfid" hidden value="1380472889723">
                         <input type="submit" class="btn btn-primary btn-lg" value="Scan"></input>
                     </form>
                     </p>
@@ -173,7 +173,7 @@
                     <!-- Content -->
                     <h5 class="text-uppercase font-weight-bold" style="
     color: #f7f7f7;">About Project</h5>
-                    <p>To design a rental system that charges automatically on tapping RFId tag on the sensor and a web interface for viewing user account details</p>
+                    <p>This project is suitable for rental services where customers are charged based on time of using the service/product. This Project has API to recieve requests from NodeMCU (Arduino) which acts as client. Customer has to tap thier RFId tags on scanner on entering and exiting. Amount will be deducted from his account based on how much time he spent and transaction will be saved on database. Customer can login with their credentials to enable or disable their card and to see their previous transactions. Admin has option to recharge any customer account. More features coming soon.. </p>
 
                 </div>
                 <!-- Grid column -->

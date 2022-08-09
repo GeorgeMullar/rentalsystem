@@ -4,11 +4,11 @@ session_start();
 // include '../includes/domain.php';
 include "../includes/domain.php";
 if (isset($_POST["logout"])) {
-    $_SESSION['loggedIn'] = 0;
+    $_SESSION['adminLoggedIn']  = 0;
     header('Location: '.$domain);
 }
 //$_SESSION['loggedIn']=0;
-if ($_SESSION['loggedIn'] == 0) {
+if ($_SESSION['adminLoggedIn']  == 0) {
 
     header('Location: '.$domain);
 }
@@ -83,7 +83,7 @@ include "../db.php";
            
                 <!--<ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                       <!-- <a class="nav-link" href="javascript:void(0)">Link</a> 
+                       <a class="nav-link" href="javascript:void(0)">Link</a> 
                        
                     </li>
                 </ul> -->

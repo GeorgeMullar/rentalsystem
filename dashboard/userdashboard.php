@@ -2,11 +2,11 @@
 session_start();
 include "../includes/domain.php";
 if (isset($_POST["logout"])) {
-  $_SESSION['loggedIn'] = 0;
+  $_SESSION['userloggedIn'] = 0;
   header('Location: '.$domain);
 }
 //$_SESSION['loggedIn']=0;
-if ($_SESSION['loggedIn'] == 0) {
+if ($_SESSION['userloggedIn']  == 0) {
 
   header('Location: ' .$domain); //redirecting to home page
 }
@@ -35,19 +35,19 @@ $balance = $row["balance"];
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="javascript:void(0)">Rental Project</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <a>
+        <form method="post">
+          <div class="d-flex" style="margin-left:auto;">
+            <input type="submit" name="logout" value="logout" class="btn btn-primary" />
+          </div>
+
+        </form>
+      </a>
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mynavbar">
-        <div class="d-flex" style="margin-left:auto;">
-          <a>
-            <form method="post">
-              <input type="submit" name="logout" value="logout" class="btn btn-primary" />
-
-            </form>
-          </a>
-        </div>
-      </div>
+      </div> -->
     </div>
   </nav>
   <div>

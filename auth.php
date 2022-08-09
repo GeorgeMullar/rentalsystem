@@ -31,7 +31,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $stmt->close();
         //echo "successfullll";
         session_start();
-        $_SESSION['loggedIn'] = true;
         //$_SESSION['user_id'] = 0;
         $_SESSION['username'] = $username;
         //echo $_SESSION['loggedIn'];
@@ -39,15 +38,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         //sleep(3);
         if($username=="admin"){
             // echo "success";
+            $_SESSION['adminLoggedIn'] = true;
             header('Location: '. $domain .'/dashboard/admindashboard.php');
         }
-        else
-        header('Location: '. $domain .'/dashboard/userdashboard.php');
+        else{
+            $_SESSION['userloggedIn'] = true;
+            header('Location: '. $domain .'/dashboard/userdashboard.php');
+        }
         exit();
         
     }
     else{
-        $_SESSION['loggedIn'] = false;
+        $_SESSION['adminLoggedIn'] = false;
+        $_SESSION['userloggedIn'] = false;
         echo "wrong pass";
     }
 }

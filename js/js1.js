@@ -7,12 +7,12 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-
 $("#rfid-form").on("submit", function(e) {
     var dataString = $(this).serialize();
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/projects/NewRental/arduinoConnect.php",
+        // url: "https://rentalsystem.ml/arduinoConnect.php",
+        url: "http://localhost:8080/projects/NewRental/arduinoconnect.php",
         data: dataString,
         success: function(res) {
             // console.log(res);
@@ -22,13 +22,17 @@ $("#rfid-form").on("submit", function(e) {
             // console.log(result[0]);
             if (res.type == "entry") {
                 var result = "Welcome " + res.user;
-            } else {
+                var balance = "Your Current Balance :" + res.balance;
+                $('.balance').html(balance);
+            } else if (res.type == "exit") {
                 var result = "Visit Again";
+                var balance = "Your Current Balance :" + res.balance;
+                $('.balance').html(balance);
+            } else {
+                result = res;
             }
-            var balance = "Your Current Balance :" + res.balance;
             // $('.display-txt').html("<div id='message'></div>");
             $('.display-txt').html(result);
-            $('.balance').html(balance);
 
         }
     });

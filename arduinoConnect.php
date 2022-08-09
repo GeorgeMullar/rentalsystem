@@ -23,6 +23,15 @@
   }
   $user = $row["username"];   //exist
   // check balance
+  $enable=0;
+  $sql = "select active from customers where username='$user' ";
+  $result = $conn->query($sql);
+  $row = $result->fetch_assoc();
+  $enable = $row["active"];
+  if(!$enable){
+    echo "Card is blocked";
+    exit();
+  }
   $sql = "select balance from balance where username='$user' ";
   $result = $conn->query($sql);
   $row = $result->fetch_assoc();
