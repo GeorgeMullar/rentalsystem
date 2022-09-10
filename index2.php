@@ -186,7 +186,8 @@
 
                     <!-- Content -->
                     <h5 class="text-uppercase font-weight-bold">About Us</h5>
-                    <p>Web Dev:George Mullar Jampana<br>Hardware Design:Thati Yashwanth</p>
+                    <p>Tanakala Poorna Jagadeesh-Web Dev<br>
+                    George Mullar Jampana-Web Dev<br>Hardware Design:Thati Yashwanth</p>
 
                 </div>
                 <!-- Grid column -->
